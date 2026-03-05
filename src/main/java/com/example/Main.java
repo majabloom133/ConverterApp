@@ -51,14 +51,11 @@ public class Main {
                     System.out.println("Invalid choice, please try again.");
             }
         }
-
         // Turns scanner off
         scanner.close();
     }
 
     // Prepare methods
-
-
     // Currency method
     public static void convertCurrency(Scanner sc) {
         System.out.println("\n--- Currency Converter Selected. ---");
@@ -82,7 +79,6 @@ public class Main {
     }
 
     public static void convertTemperature(Scanner sc) {
-
         System.out.println("\n--- Temperature Converter is selected. ---");
         System.out.print("Enter degrees in Celsius: ");
         // Read input, change to double
@@ -96,17 +92,14 @@ public class Main {
     }
 
     public static void convertLength(Scanner sc) {
-
         System.out.println("\n--- Length Converter selected. ---");
         System.out.print("Enter Length in meters: ");
-
         // Use double meters to read input in meters
         // Divide ny 1000 to get the kilometers.
         double meters = Double.parseDouble(sc.nextLine());
         double km = meters / 1000;
         // Print result
                 System.out.println("Result: " + meters + " m = " + km + (" km"));
-
         // Call for timestamp to show when
         printTimestamp();
     }
