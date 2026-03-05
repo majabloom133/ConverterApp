@@ -21,7 +21,8 @@ public class Main {
             System.out.println("1. Currency (SEK to USD)");
             System.out.println("2. Temperature (Celsius to Fahrenheit)");
             System.out.println("3. Length (Meters to Kilometers)");
-            System.out.println("4. Exit");
+            System.out.println("4. Weight (Kilograms to Pounds)");
+            System.out.println("5. Exit");
             System.out.println("Choose an option: ");
 
             // Reads input as a String
@@ -40,6 +41,9 @@ public class Main {
                     convertLength(scanner);
                     break;
                 case "4":
+                    convertWeight(scanner);
+                    break;
+                case "5":
                     System.out.println("Exiting... Goodbye!");
                     keepRunning = false;
                     break;
@@ -92,8 +96,32 @@ public class Main {
     }
 
     public static void convertLength(Scanner sc) {
-        System.out.println("Length Converter selected.");
+
+        System.out.println("\n--- Length Converter selected. ---");
+        System.out.print("Enter Length in meters: ");
+
+        // Use double meters to read input in meters
+        // Divide ny 1000 to get the kilometers.
+        double meters = Double.parseDouble(sc.nextLine());
+        double km = meters / 1000;
+        // Print result
+                System.out.println("Result: " + meters + " m = " + km + (" km"));
+
+        // Call for timestamp to show when
+        printTimestamp();
     }
+
+    public static void convertWeight(Scanner sc) {
+        System.out.println("\n--- Weight Converter Selected ---");
+        System.out.print("Enter weight in kilograms: ");
+        // Read input - switch to double
+        double kg = Double.parseDouble(sc.nextLine());
+        double lbs = kg * 2.20462;
+        // Print result and time
+        System.out.println("Result: " + kg + " kg = " + lbs + " lbs");
+        printTimestamp();
+    }
+
 }
 
 
