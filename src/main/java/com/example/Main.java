@@ -62,6 +62,7 @@ public class Main {
     public static void convertCurrency(Scanner sc) {
         System.out.println("\n--- Currency Converter Selected. ---");
         System.out.print("Enter the amount in SEK: ");
+        // Inside try-catch to make sure program doesn't crash from error
         try {
             // Read amount, use double to read decimals
             double sek = Double.parseDouble(sc.nextLine());
@@ -70,8 +71,7 @@ public class Main {
             // Changed to class level scope
             System.out.println("Result: " + sek + " SEK = " + usd + " USD");
             printTimestamp();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Error: Enter a valid number (use dots for decimals)");
         }
     }
@@ -87,38 +87,53 @@ public class Main {
     public static void convertTemperature(Scanner sc) {
         System.out.println("\n--- Temperature Converter is selected. ---");
         System.out.print("Enter degrees in Celsius: ");
-        // Read input, change to double
-        double celsius = Double.parseDouble(sc.nextLine());
-        // This changes Celsius into Fahrenheit
-        double fahrenheit = (celsius * 1.8) + 32;
-        // Print result
-        System.out.println("Result: " + celsius + "°C = " + fahrenheit + "°F");
-        // Call for Timestamp method to show when
-        printTimestamp();
+        // Write in try-catch to prevent crashing after an error.
+        try {
+            // Read input, change to double
+            double celsius = Double.parseDouble(sc.nextLine());
+            // This changes Celsius into Fahrenheit
+            double fahrenheit = (celsius * 1.8) + 32;
+            // Print result
+            System.out.println("Result: " + celsius + "°C = " + fahrenheit + "°F");
+            // Call for Timestamp method to show when
+            printTimestamp();
+        } catch (Exception e) {
+        System.out.println("Invalid input! Use numbers only.");
     }
+}
 
     public static void convertLength(Scanner sc) {
         System.out.println("\n--- Length Converter selected. ---");
         System.out.print("Enter Length in meters: ");
-        // Use double meters to read input in meters
-        // Divide ny 1000 to get the kilometers.
-        double meters = Double.parseDouble(sc.nextLine());
-        double km = meters / 1000;
-        // Print result
-                System.out.println("Result: " + meters + " m = " + km + (" km"));
-        // Call for timestamp to show when
-        printTimestamp();
+
+        try {
+            // Use double meters to read input in meters
+            // Divide ny 1000 to get the kilometers.
+            double meters = Double.parseDouble(sc.nextLine());
+            double km = meters / 1000;
+            // Print result
+            System.out.println("Result: " + meters + " m = " + km + (" km"));
+            // Call for timestamp to show when
+            printTimestamp();
+        } catch (Exception e) {
+            System.out.println("Error: Enter a number for the distance.");
+        }
     }
 
     public static void convertWeight(Scanner sc) {
         System.out.println("\n--- Weight Converter Selected ---");
         System.out.print("Enter weight in kilograms: ");
-        // Read input - switch to double
-        double kg = Double.parseDouble(sc.nextLine());
-        double lbs = kg * 2.20462;
-        // Print result and time
-        System.out.println("Result: " + kg + " kg = " + lbs + " lbs");
-        printTimestamp();
+        try {
+            // Read input - switch to double
+            double kg = Double.parseDouble(sc.nextLine());
+            double lbs = kg * 2.20462;
+            // Print result and time
+            System.out.println("Result: " + kg + " kg = " + lbs + " lbs");
+            printTimestamp();
+        }
+        catch (Exception e) {
+            System.out.println("Error: Enter a valid number for the weight.");
+        }
     }
 
 }
