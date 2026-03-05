@@ -79,7 +79,16 @@ public class Main {
 
     public static void convertTemperature(Scanner sc) {
 
-        System.out.println("Temperature Converter is selected.");
+        System.out.println("\n--- Temperature Converter is selected. ---");
+        System.out.print("Enter degrees in Celsius: ");
+        // Read input, change to double
+        double celsius = Double.parseDouble(sc.nextLine());
+        // This changes Celsius into Fahrenheit
+        double fahrenheit = (celsius * 1.8) + 32;
+        // Print result
+        System.out.println("Result: " + celsius + "°C = " + fahrenheit + "°F");
+        // Call for Timestamp method to show when
+        printTimestamp();
     }
 
     public static void convertLength(Scanner sc) {
