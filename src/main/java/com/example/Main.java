@@ -18,7 +18,7 @@ public class Main {
         while (keepRunning) {
             // Create while-loop that runs as long as keepRunning is true.
             System.out.println("\n--- Main Menu ---");
-            System.out.println("1. Currency (SEK to USD");
+            System.out.println("1. Currency (SEK to USD)");
             System.out.println("2. Temperature (Celsius to Fahrenheit)");
             System.out.println("3. Length (Meters to Kilometers)");
             System.out.println("4. Exit");
@@ -52,18 +52,39 @@ public class Main {
         scanner.close();
     }
 
-        // Prepare methods
-        public static void convertCurrency(Scanner sc) {
-            System.out.println("Currency Converter Selected.");
-        }
-
-        public static void convertTemperature(Scanner sc) {
-            System.out.println("Temperature Converter is selected.");
-        }
-
-        public static void convertLength(Scanner sc) {
-            System.out.println("Length Converter selected.");
-        }
+    // Prepare methods
 
 
+    // Currency method
+    public static void convertCurrency(Scanner sc) {
+        System.out.println("\n--- Currency Converter Selected. ---");
+        System.out.print("Enter the amount in SEK: ");
+        // Read amount, use double to read decimals
+        double sek = Double.parseDouble(sc.nextLine());
+        //Calculate USD - fixed exchange rate
+        double exchangeRate = 0.095;
+        double usd = sek * exchangeRate;
+        // Print result by adding text + variables together
+        System.out.println("Result: " + sek + " SEK = " + usd + " USD");
+        printTimestamp();
     }
+
+    // Call timestamp method to display date + time
+    public static void printTimestamp() {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String formattedDate = now.format(formatter);
+        System.out.println("Converted at: " + formattedDate);
+    }
+
+    public static void convertTemperature(Scanner sc) {
+
+        System.out.println("Temperature Converter is selected.");
+    }
+
+    public static void convertLength(Scanner sc) {
+        System.out.println("Length Converter selected.");
+    }
+}
+
+
