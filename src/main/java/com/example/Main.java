@@ -84,6 +84,7 @@ public class Main {
         }
     }
 
+
     // Call timestamp method to display date + time
     public static void printTimestamp() {
         LocalDateTime now = LocalDateTime.now();
@@ -91,6 +92,7 @@ public class Main {
         String formattedDate = now.format(formatter);
         System.out.println("Converted at: " + formattedDate);
     }
+
 
     public static void convertTemperature(Scanner sc) {
         System.out.println("\n--- Temperature Converter is selected. ---");
@@ -110,6 +112,7 @@ public class Main {
     }
 }
 
+
     public static void convertLength(Scanner sc) {
         System.out.println("\n--- Length Converter selected. ---");
         System.out.print("Enter Length in meters: ");
@@ -128,6 +131,7 @@ public class Main {
         }
     }
 
+
     public static void convertWeight(Scanner sc) {
         System.out.println("\n--- Weight Converter Selected ---");
         System.out.print("Enter weight in kilograms: ");
@@ -144,6 +148,7 @@ public class Main {
         }
     }
 
+
     public static void convertArea(Scanner sc) {
         System.out.println("\n--- Area Converter Selected ---");
         System.out.print("Enter area in square meters: ");
@@ -152,7 +157,6 @@ public class Main {
         try {
             double m2 = Double.parseDouble(sc.nextLine());
             double hectares = m2 / 10000;
-
             System.out.println("Result: " + m2 + "  m2 = " + hectares + " hectares");
             printTimestamp();;
         }
@@ -160,6 +164,7 @@ public class Main {
             System.out.println("Error: Enter valid number to calculate area.");
         }
     }
+
 
     public static void convertVolume(Scanner sc) {
         System.out.println("\n--- Volume Converter Selected ---");
@@ -172,5 +177,6 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Error: Pick a valid number for volume.");
         }
+
     }
 }
