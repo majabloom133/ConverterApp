@@ -25,7 +25,8 @@ public class Main {
             System.out.println("3. Length (Meters to Kilometers)");
             System.out.println("4. Weight (Kilograms to Pounds)");
             System.out.println("5. Area (Square Meters to Hectares)");
-            System.out.println("6. Exit");
+            System.out.println("6. Volume (Liters to Gallons)");
+            System.out.println("7. Exit");
             System.out.println("Choose an option: ");
 
             // Reads input as a String
@@ -50,6 +51,9 @@ public class Main {
                     convertArea(scanner);
                     break;
                 case "6":
+                    convertVolume(scanner);
+                    break;
+                case "7":
                     System.out.println("Exiting... Goodbye!");
                     keepRunning = false;
                     break;
@@ -157,6 +161,16 @@ public class Main {
         }
     }
 
+    public static void convertVolume(Scanner sc) {
+        System.out.println("\n--- Volume Converter Selected ---");
+        System.out.print("Enter Volume in liters: ");
+        try {
+            double liters = Double.parseDouble(sc.nextLine());
+            double gallons = liters * 0.264172;
+            System.out.println("Result: " + liters + " L = " + gallons + " gallons");
+            printTimestamp();
+        } catch (Exception e) {
+            System.out.println("Error: Pick a valid number for volume.");
+        }
+    }
 }
-
-
