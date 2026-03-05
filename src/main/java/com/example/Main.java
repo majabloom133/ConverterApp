@@ -24,7 +24,8 @@ public class Main {
             System.out.println("2. Temperature (Celsius to Fahrenheit)");
             System.out.println("3. Length (Meters to Kilometers)");
             System.out.println("4. Weight (Kilograms to Pounds)");
-            System.out.println("5. Exit");
+            System.out.println("5. Area (Square Meters to Hectares)");
+            System.out.println("6. Exit");
             System.out.println("Choose an option: ");
 
             // Reads input as a String
@@ -46,6 +47,9 @@ public class Main {
                     convertWeight(scanner);
                     break;
                 case "5":
+                    convertArea(scanner);
+                    break;
+                case "6":
                     System.out.println("Exiting... Goodbye!");
                     keepRunning = false;
                     break;
@@ -133,6 +137,23 @@ public class Main {
         }
         catch (Exception e) {
             System.out.println("Error: Enter a valid number for the weight.");
+        }
+    }
+
+    public static void convertArea(Scanner sc) {
+        System.out.println("\n--- Area Converter Selected ---");
+        System.out.print("Enter area in square meters: ");
+        // Add try-catch
+        // 1 hectare is 10.000 square meters.
+        try {
+            double m2 = Double.parseDouble(sc.nextLine());
+            double hectares = m2 / 10000;
+
+            System.out.println("Result: " + m2 + "  m2 = " + hectares + " hectares");
+            printTimestamp();;
+        }
+        catch (Exception e) {
+            System.out.println("Error: Enter valid number to calculate area.");
         }
     }
 
