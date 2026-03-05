@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Main {
+    // Added this to include class level scope as well, just to learn
+    static double sekToUsdRate = 0.095;
 
     public static void main(String[] args) {
         // Create a scanner that listens to what I write
@@ -60,14 +62,18 @@ public class Main {
     public static void convertCurrency(Scanner sc) {
         System.out.println("\n--- Currency Converter Selected. ---");
         System.out.print("Enter the amount in SEK: ");
-        // Read amount, use double to read decimals
-        double sek = Double.parseDouble(sc.nextLine());
-        //Calculate USD - fixed exchange rate
-        double exchangeRate = 0.095;
-        double usd = sek * exchangeRate;
-        // Print result by adding text + variables together
-        System.out.println("Result: " + sek + " SEK = " + usd + " USD");
-        printTimestamp();
+        try {
+            // Read amount, use double to read decimals
+            double sek = Double.parseDouble(sc.nextLine());
+            //Calculate USD - fixed exchange rate
+            double usd = sek * sekToUsdRate;
+            // Changed to class level scope
+            System.out.println("Result: " + sek + " SEK = " + usd + " USD");
+            printTimestamp();
+        }
+        catch (Exception e) {
+            System.out.println("Error: Enter a valid number (use dots for decimals)");
+        }
     }
 
     // Call timestamp method to display date + time
