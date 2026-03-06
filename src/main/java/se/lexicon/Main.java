@@ -2,8 +2,8 @@ package se.lexicon;
 
 // Import scanner to read input, and LocalDateTime for date/time
 import java.util.Scanner;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
+import static se.lexicon.TimeUtils.printTimestamp;
 
 public class Main {
     // Added this to include class level scope as well, just to learn
@@ -97,7 +97,7 @@ public class Main {
             System.out.println("Result: ");
             System.out.println(sek + " SEK = " + usd + " USD");
             System.out.println(sek + " SEK = " + eur + " EUR");
-            printTimestamp();
+            TimeUtils.printTimestamp();
         } catch (Exception e) {
             System.out.println("Error: Enter a valid number (use dots for decimals)");
         }
@@ -111,7 +111,7 @@ public class Main {
             double sek = Double.parseDouble(sc.nextLine());
             // The line below sends the job to another method
             calculateAndPrintCurrency(sek);
-            printTimestamp();
+            TimeUtils.printTimestamp();
         } catch (Exception e) {
             System.out.println("Error: Enter a valid number.");
         }
@@ -125,14 +125,7 @@ public class Main {
         System.out.println(sek + " SEK = " + eur + " EUR");
     }
 
-
-    // Call timestamp method to display date + time
-    public static void printTimestamp() {
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        String formattedDate = now.format(formatter);
-        System.out.println("Converted at: " + formattedDate);
-    }
+    // Here the content in TimeUtils used to be.
 
         // Temperature method
     public static void convertTemperature(Scanner sc) {
@@ -147,7 +140,7 @@ public class Main {
             // Print result
             System.out.println("Result: " + celsius + "°C = " + fahrenheit + "°F");
             // Call for Timestamp method to show when
-            printTimestamp();
+            TimeUtils.printTimestamp();
         } catch (Exception e) {
             System.out.println("Invalid input! Use numbers only.");
         }
@@ -165,7 +158,7 @@ public class Main {
                 // Print result
                 System.out.println("Result: " + meters + " m = " + km + (" km"));
                 // Call for timestamp to show when
-                printTimestamp();
+                TimeUtils.printTimestamp();
             } catch (Exception e) {
                 System.out.println("Error: Enter a number for the distance.");
             }
@@ -181,7 +174,7 @@ public class Main {
                 double lbs = kg * 2.20462;
                 // Print result and time
                 System.out.println("Result: " + kg + " kg = " + lbs + " lbs");
-                printTimestamp();
+                TimeUtils.printTimestamp();
             } catch (Exception e) {
                 System.out.println("Error: Enter a valid number for the weight.");
             }
@@ -197,7 +190,7 @@ public class Main {
                 double m2 = Double.parseDouble(sc.nextLine());
                 double hectares = m2 / 10000;
                 System.out.println("Result: " + m2 + "  m2 = " + hectares + " hectares");
-                printTimestamp();
+                TimeUtils.printTimestamp();
                 ;
             } catch (Exception e) {
                 System.out.println("Error: Enter valid number to calculate area.");
@@ -212,7 +205,7 @@ public class Main {
                 double liters = Double.parseDouble(sc.nextLine());
                 double gallons = liters * 0.264172;
                 System.out.println("Result: " + liters + " L = " + gallons + " gallons");
-                printTimestamp();
+                TimeUtils.printTimestamp();
             } catch (Exception e) {
                 System.out.println("Error: Pick a valid number for volume.");
             }
@@ -226,7 +219,7 @@ public class Main {
                 double kmh = Double.parseDouble(sc.nextLine());
                 double mph = kmh * 0.621371;
                 System.out.println("Result: " + kmh + " km/h = " + mph + " mph");
-                printTimestamp();
+                TimeUtils.printTimestamp();
             } catch (Exception e) {
                 System.out.println("Error: Enter a valid number for speed");
             }
@@ -245,7 +238,7 @@ public class Main {
                 // Calling a static method via the class name "PowerConverter"
                 // It's a Utility task - doesn't need a specific object
                 System.out.println("Result: " + watts + " W = " + hp + " hp");
-                printTimestamp();
+                TimeUtils.printTimestamp();
             } catch (Exception e) {
                 System.out.println("Error: Enter valid number for power.");
             }
@@ -259,7 +252,7 @@ public class Main {
                 double hours = Double.parseDouble(sc.nextLine());
                 double minutes = hours * 60;
                 System.out.println("Result: " + hours + " hours = " + minutes + " minutes");
-                printTimestamp();
+                TimeUtils.printTimestamp();
             } catch (Exception e) {
                 System.out.println("Error: Enter a valid number for hours.");
             }
