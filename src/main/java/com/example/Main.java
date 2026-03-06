@@ -26,7 +26,9 @@ public class Main {
             System.out.println("4. Weight (Kilograms to Pounds)");
             System.out.println("5. Area (Square Meters to Hectares)");
             System.out.println("6. Volume (Liters to Gallons)");
-            System.out.println("7. Exit");
+            System.out.println("7. Speed (Km/h to mph)");
+            System.out.println("8. Time (Hours to Minutes)");
+            System.out.println("9. Exit");
             System.out.println("Choose an option: ");
 
             // Reads input as a String
@@ -54,6 +56,12 @@ public class Main {
                     convertVolume(scanner);
                     break;
                 case "7":
+                    convertSpeed(scanner);
+                    break;
+                case "8":
+                    convertTime(scanner);
+                    break;
+                case "9":
                     System.out.println("Exiting... Goodbye!");
                     keepRunning = false;
                     break;
@@ -177,6 +185,31 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Error: Pick a valid number for volume.");
         }
-
     }
-}
+
+        public static void convertSpeed(Scanner sc) {
+            System.out.println("\n--- Speed Converter Selected ---");
+            System.out.print("Enter speed in km/h: ");
+            try {
+                double kmh = Double.parseDouble(sc.nextLine());
+                double mph = kmh * 0.621371;
+                System.out.println("Result: " + kmh + " km/h = " + mph + " mph");
+                printTimestamp();
+            } catch (Exception e) {
+                System.out.println("Error: Enter a valid number for speed");
+            }
+        }
+
+            public static void convertTime(Scanner sc) {
+                System.out.println("\n--- Time Converter Selected ---");
+                System.out.print("Enter time in hours: ");
+                try {
+                    double hours = Double.parseDouble(sc.nextLine());
+                    double minutes = hours * 60;
+                    System.out.println("Result: " + hours + " hours = " + minutes + " minutes");
+                    printTimestamp();
+                } catch (Exception e) {
+                    System.out.println("Error: Enter a valid number for hours.");
+                }
+            }
+    }
