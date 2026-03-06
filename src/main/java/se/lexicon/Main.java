@@ -1,4 +1,4 @@
-package com.example;
+package se.lexicon;
 
 // Import scanner to read input, and LocalDateTime for date/time
 import java.util.Scanner;
