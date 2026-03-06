@@ -8,6 +8,7 @@ import java.time.format.DateTimeFormatter;
 public class Main {
     // Added this to include class level scope as well, just to learn
     static double sekToUsdRate = 0.095;
+    static double sekToEurRate = 0.088;
 
     public static void main(String[] args) {
         // Create a scanner that listens to what I write
@@ -77,7 +78,8 @@ public class Main {
         scanner.close();
     }
 
-    // Prepare methods
+    // METHODS
+
     // Currency method
     public static void convertCurrency(Scanner sc) {
         System.out.println("\n--- Currency Converter Selected. ---");
@@ -88,8 +90,11 @@ public class Main {
             double sek = Double.parseDouble(sc.nextLine());
             //Calculate USD - fixed exchange rate
             double usd = sek * sekToUsdRate;
+            double eur = sek * sekToEurRate;
             // Changed to class level scope
-            System.out.println("Result: " + sek + " SEK = " + usd + " USD");
+            System.out.println("Result: ");
+            System.out.println(sek + " SEK = " + usd + " USD");
+            System.out.println(sek + " SEK = " + eur + " EUR");
             printTimestamp();
         } catch (Exception e) {
             System.out.println("Error: Enter a valid number (use dots for decimals)");
@@ -105,7 +110,7 @@ public class Main {
         System.out.println("Converted at: " + formattedDate);
     }
 
-
+        // Temperature method
     public static void convertTemperature(Scanner sc) {
         System.out.println("\n--- Temperature Converter is selected. ---");
         System.out.print("Enter degrees in Celsius: ");
@@ -124,11 +129,10 @@ public class Main {
         }
     }
 
-
+                // Length converter
         public static void convertLength (Scanner sc){
             System.out.println("\n--- Length Converter selected. ---");
             System.out.print("Enter Length in meters: ");
-
             try {
                 // Use double meters to read input in meters
                 // Divide ny 1000 to get the kilometers.
@@ -143,7 +147,7 @@ public class Main {
             }
         }
 
-
+        // Weight converter
         public static void convertWeight (Scanner sc){
             System.out.println("\n--- Weight Converter Selected ---");
             System.out.print("Enter weight in kilograms: ");
@@ -159,7 +163,7 @@ public class Main {
             }
         }
 
-
+        // Area converter
         public static void convertArea (Scanner sc){
             System.out.println("\n--- Area Converter Selected ---");
             System.out.print("Enter area in square meters: ");
@@ -176,7 +180,7 @@ public class Main {
             }
         }
 
-
+        // Volume converter
         public static void convertVolume (Scanner sc){
             System.out.println("\n--- Volume Converter Selected ---");
             System.out.print("Enter Volume in liters: ");
@@ -190,6 +194,7 @@ public class Main {
             }
         }
 
+        // Speed converter
         public static void convertSpeed (Scanner sc){
             System.out.println("\n--- Speed Converter Selected ---");
             System.out.print("Enter speed in km/h: ");
@@ -203,6 +208,7 @@ public class Main {
             }
         }
 
+        // Power converter
         public static void convertPower(Scanner sc) {
             // Creating instance of PowerConverter class, naming it "Power Analysis Tool"
             PowerConverter myApp = new PowerConverter("Power Analysis Tool");
@@ -221,6 +227,7 @@ public class Main {
             }
         }
 
+        // Time converter
         public static void convertTime (Scanner sc){
             System.out.println("\n--- Time Converter Selected ---");
             System.out.print("Enter time in hours: ");
