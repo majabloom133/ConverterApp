@@ -28,7 +28,8 @@ public class Main {
             System.out.println("6. Volume (Liters to Gallons)");
             System.out.println("7. Speed (Km/h to mph)");
             System.out.println("8. Time (Hours to Minutes)");
-            System.out.println("9. Exit");
+            System.out.println("9. Power (Watts to Horsepower)");
+            System.out.println("10. Exit");
             System.out.println("Choose an option: ");
 
             // Reads input as a String
@@ -62,6 +63,9 @@ public class Main {
                     convertTime(scanner);
                     break;
                 case "9":
+                    convertPower(scanner);
+                    break;
+                case "10":
                     System.out.println("Exiting... Goodbye!");
                     keepRunning = false;
                     break;
@@ -116,78 +120,77 @@ public class Main {
             // Call for Timestamp method to show when
             printTimestamp();
         } catch (Exception e) {
-        System.out.println("Invalid input! Use numbers only.");
-    }
-}
-
-
-    public static void convertLength(Scanner sc) {
-        System.out.println("\n--- Length Converter selected. ---");
-        System.out.print("Enter Length in meters: ");
-
-        try {
-            // Use double meters to read input in meters
-            // Divide ny 1000 to get the kilometers.
-            double meters = Double.parseDouble(sc.nextLine());
-            double km = meters / 1000;
-            // Print result
-            System.out.println("Result: " + meters + " m = " + km + (" km"));
-            // Call for timestamp to show when
-            printTimestamp();
-        } catch (Exception e) {
-            System.out.println("Error: Enter a number for the distance.");
+            System.out.println("Invalid input! Use numbers only.");
         }
     }
 
 
-    public static void convertWeight(Scanner sc) {
-        System.out.println("\n--- Weight Converter Selected ---");
-        System.out.print("Enter weight in kilograms: ");
-        try {
-            // Read input - switch to double
-            double kg = Double.parseDouble(sc.nextLine());
-            double lbs = kg * 2.20462;
-            // Print result and time
-            System.out.println("Result: " + kg + " kg = " + lbs + " lbs");
-            printTimestamp();
+        public static void convertLength (Scanner sc){
+            System.out.println("\n--- Length Converter selected. ---");
+            System.out.print("Enter Length in meters: ");
+
+            try {
+                // Use double meters to read input in meters
+                // Divide ny 1000 to get the kilometers.
+                double meters = Double.parseDouble(sc.nextLine());
+                double km = meters / 1000;
+                // Print result
+                System.out.println("Result: " + meters + " m = " + km + (" km"));
+                // Call for timestamp to show when
+                printTimestamp();
+            } catch (Exception e) {
+                System.out.println("Error: Enter a number for the distance.");
+            }
         }
-        catch (Exception e) {
-            System.out.println("Error: Enter a valid number for the weight.");
-        }
-    }
 
 
-    public static void convertArea(Scanner sc) {
-        System.out.println("\n--- Area Converter Selected ---");
-        System.out.print("Enter area in square meters: ");
-        // Add try-catch
-        // 1 hectare is 10.000 square meters.
-        try {
-            double m2 = Double.parseDouble(sc.nextLine());
-            double hectares = m2 / 10000;
-            System.out.println("Result: " + m2 + "  m2 = " + hectares + " hectares");
-            printTimestamp();;
+        public static void convertWeight (Scanner sc){
+            System.out.println("\n--- Weight Converter Selected ---");
+            System.out.print("Enter weight in kilograms: ");
+            try {
+                // Read input - switch to double
+                double kg = Double.parseDouble(sc.nextLine());
+                double lbs = kg * 2.20462;
+                // Print result and time
+                System.out.println("Result: " + kg + " kg = " + lbs + " lbs");
+                printTimestamp();
+            } catch (Exception e) {
+                System.out.println("Error: Enter a valid number for the weight.");
+            }
         }
-        catch (Exception e) {
-            System.out.println("Error: Enter valid number to calculate area.");
-        }
-    }
 
 
-    public static void convertVolume(Scanner sc) {
-        System.out.println("\n--- Volume Converter Selected ---");
-        System.out.print("Enter Volume in liters: ");
-        try {
-            double liters = Double.parseDouble(sc.nextLine());
-            double gallons = liters * 0.264172;
-            System.out.println("Result: " + liters + " L = " + gallons + " gallons");
-            printTimestamp();
-        } catch (Exception e) {
-            System.out.println("Error: Pick a valid number for volume.");
+        public static void convertArea (Scanner sc){
+            System.out.println("\n--- Area Converter Selected ---");
+            System.out.print("Enter area in square meters: ");
+            // Add try-catch
+            // 1 hectare is 10.000 square meters.
+            try {
+                double m2 = Double.parseDouble(sc.nextLine());
+                double hectares = m2 / 10000;
+                System.out.println("Result: " + m2 + "  m2 = " + hectares + " hectares");
+                printTimestamp();
+                ;
+            } catch (Exception e) {
+                System.out.println("Error: Enter valid number to calculate area.");
+            }
         }
-    }
 
-        public static void convertSpeed(Scanner sc) {
+
+        public static void convertVolume (Scanner sc){
+            System.out.println("\n--- Volume Converter Selected ---");
+            System.out.print("Enter Volume in liters: ");
+            try {
+                double liters = Double.parseDouble(sc.nextLine());
+                double gallons = liters * 0.264172;
+                System.out.println("Result: " + liters + " L = " + gallons + " gallons");
+                printTimestamp();
+            } catch (Exception e) {
+                System.out.println("Error: Pick a valid number for volume.");
+            }
+        }
+
+        public static void convertSpeed (Scanner sc){
             System.out.println("\n--- Speed Converter Selected ---");
             System.out.print("Enter speed in km/h: ");
             try {
@@ -200,16 +203,57 @@ public class Main {
             }
         }
 
-            public static void convertTime(Scanner sc) {
-                System.out.println("\n--- Time Converter Selected ---");
-                System.out.print("Enter time in hours: ");
-                try {
-                    double hours = Double.parseDouble(sc.nextLine());
-                    double minutes = hours * 60;
-                    System.out.println("Result: " + hours + " hours = " + minutes + " minutes");
-                    printTimestamp();
-                } catch (Exception e) {
-                    System.out.println("Error: Enter a valid number for hours.");
-                }
+        public static void convertPower(Scanner sc) {
+            // Creating instance of PowerConverter class, naming it "Power Analysis Tool"
+            PowerConverter myApp = new PowerConverter("Power Analysis Tool");
+            // Calling instance method - works because of previous line
+            myApp.printWelcome();
+            System.out.print("Enter power in Watts: ");
+            try {
+                double watts = Double.parseDouble(sc.nextLine());
+                double hp = PowerConverter.calculateHp(watts);
+                // Calling a static method via the class name "PowerConverter"
+                // It's a Utility task - doesn't need a specific object
+                System.out.println("Result: " + watts + " W = " + hp + " hp");
+                printTimestamp();
+            } catch (Exception e) {
+                System.out.println("Error: Enter valid number for power.");
             }
+        }
+
+        public static void convertTime (Scanner sc){
+            System.out.println("\n--- Time Converter Selected ---");
+            System.out.print("Enter time in hours: ");
+            try {
+                double hours = Double.parseDouble(sc.nextLine());
+                double minutes = hours * 60;
+                System.out.println("Result: " + hours + " hours = " + minutes + " minutes");
+                printTimestamp();
+            } catch (Exception e) {
+                System.out.println("Error: Enter a valid number for hours.");
+            }
+        }
+        // Close main
+}
+
+// A separate class to practice Static vs Instance members
+// Asked AI for help, since this is new for me.
+class PowerConverter {
+    // Static field: Shared by ALL instances of the class (Global rate)
+    static double wattToHpFactor = 0.001341;
+    // Instance field: Unique data for each object
+    String converterName;
+    // Constructure: Used to create a new instance (object) of this class
+    public PowerConverter(String name) {
+        this.converterName = name;
     }
+    // Instance method: Operates on a specfific object's data (Uses this name)
+    public void printWelcome() {
+        System.out.println("\n---" + this.converterName + " Selected ---");
+    }
+    // Static method: Static method: Belongs to the class itself. Performs a Utility task.
+    public static double calculateHp(double watts) {
+        // Does a calculation that doesn't need object-specific data
+        return watts * wattToHpFactor;
+    }
+}
