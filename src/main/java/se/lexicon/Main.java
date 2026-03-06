@@ -80,6 +80,8 @@ public class Main {
 
     // METHODS
 
+    // Keeping old code to show how i changed it from having more than 1 task/method, to only 1,
+    /*
     // Currency method
     public static void convertCurrency(Scanner sc) {
         System.out.println("\n--- Currency Converter Selected. ---");
@@ -99,6 +101,28 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Error: Enter a valid number (use dots for decimals)");
         }
+    } */
+
+    // This only handles the input and calls for calculation
+    public static void convertCurrency(Scanner sc) {
+        System.out.println("\n--- Currency Converter Selected. ---");
+        System.out.print("Enter amount in SEK: ");
+        try {
+            double sek = Double.parseDouble(sc.nextLine());
+            // The line below sends the job to another method
+            calculateAndPrintCurrency(sek);
+            printTimestamp();
+        } catch (Exception e) {
+            System.out.println("Error: Enter a valid number.");
+        }
+    }
+    // Handles only calculations and printing of the result.
+    public static void calculateAndPrintCurrency(double sek) {
+        double usd = sek * sekToUsdRate;
+        double eur = sek * sekToEurRate;
+        System.out.println("Result: ");
+        System.out.println(sek + " SEK = " + usd + " USD");
+        System.out.println(sek + " SEK = " + eur + " EUR");
     }
 
 
